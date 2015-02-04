@@ -5,7 +5,7 @@
 </div>
 <button class="btn btn-primary" ng-click="incrementa()">Novo</button>
 <input ng-model="filtro" type="search" placeholder="parte do nome">
-<p>Contatos cadastrados: {{total}}</p>
+<p>Contatos cadastrados: {{contatos.length}}</p>
 <div class="table-responsive">
     <table class="table table-houver">
         <tr>
@@ -16,7 +16,9 @@
         <tr ng-repeat ="contato in contatos | filter: filtro">
             <td><a>{{contato.nome}}</a></td>
             <td>{{contato.email}}</td>
-            <td class="text-center"><button class="btn btn-warning">Remover</button></td>
+            <td class="text-center">
+                <button ng-click="remove(contato)" class="btn btn-warning">Remover</button>
+            </td>
         </tr>
     </table>
 </div>
